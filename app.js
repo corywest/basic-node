@@ -27,22 +27,22 @@ app.post('/hedgie', function(req, res) {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      name: "Sofie2",
+      name: "Sofie10",
       hoglets: 3,
       allergies: "advil"
     })
-  });
+  })
+  .then((response) => response.json())
+  .then((result) => console.log(result))
 
   res.send();
 });
 
-app.delete('/hedgie', function(req, res) {
-  fetch("https://hedgehog-party.herokuapp.com/api/v1/invites/6", {
+app.delete('/hedgie/:id', function(req, res) {
+  fetch("https://hedgehog-party.herokuapp.com/api/v1/invites/" + req.params.id, {
     method: "DELETE",
     headers: { 'Content-Type': 'application/json' }
   })
-  .then((response) => response.json())
-  .then((result) => console.log(result))
 
   res.send();
 });

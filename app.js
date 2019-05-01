@@ -17,9 +17,7 @@ app.listen(app.get("PORT"));
 app.get('/hedgie', function(req, res) {
   fetch("https://hedgehog-party.herokuapp.com/api/v1/invites")
   .then((response) => response.json())
-  .then((result) => console.log(result))
-
-  res.send();
+  .then((result) => res.send(result))
 });
 
 app.post('/hedgie', function(req, res) {
